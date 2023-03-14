@@ -1,9 +1,8 @@
 const express = require('express');
-const router  = express();
+const router  = express.Router();
+const homeController = require('../controller/home.controller');
 
-
-router.get('/', (req,res,next) => {
-    res.render('home');
-})
+router.get('/', homeController.getHome)
+router.get('/delete-item/:id', homeController.deleteItem)
 
 module.exports = router;

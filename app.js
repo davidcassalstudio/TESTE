@@ -1,8 +1,10 @@
-const express    = require('express');
-const app        = express();
-const PORT       = process.env.PORT || 5000;
-const homeRouter = require('./routes/home.routes');
-const path       = require('path');
+const express       = require('express');
+const app           = express();
+const PORT          = process.env.PORT || 5000;
+const homeRouter    = require('./routes/home.routes');
+const contatoRouter = require('./routes/contato.routes');
+const loginRouter   = require('./routes/login.routes');
+const path          = require('path');
 const mongoose      = require('mongoose');
 
 
@@ -24,6 +26,12 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended: true}));
 
+
+
+// Routes
+app.use(loginRouter);
+app.use(homeRouter);
+app.use(contatoRouter);
 
 app.use(homeRouter);
 

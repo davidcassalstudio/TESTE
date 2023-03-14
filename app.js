@@ -2,8 +2,8 @@ const express       = require('express');
 const app           = express();
 const PORT          = process.env.PORT || 5000;
 const indexRouter    = require('./routes/index.routes');
-const contatoRouter = require('./routes/contato.routes');
-const loginRouter   = require('./routes/login.routes');
+// const contatoRouter = require('./routes/contato.routes');
+// const loginRouter   = require('./routes/login.routes');
 const path          = require('path');
 // const mongoose      = require('mongoose');
 
@@ -29,8 +29,8 @@ app.use(express.urlencoded({extended: true}));
 
 
 // Routes
-app.use(loginRouter);
+//app.use(loginRouter);
 app.use(indexRouter);
-app.use(contatoRouter);
+//app.use(contatoRouter);
 
 app.listen(PORT, () => console.log('Servidor rodando em localhost:5000'));

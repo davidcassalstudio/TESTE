@@ -1,9 +1,9 @@
-//const Contatos = require('../model/contatos.model');
+const Contatos = require('../model/contatos.model');
 
-exports.getIndex = (req, res, next) => {
-    //const contatos = await Contatos.find();
+exports.getIndex = async (req, res, next) => {
+    const contatos = await Contatos.find();
 
-    res.render('index'); 
+    res.render('index', {contatos}); 
 }
 
 // exports.deleteItem = async (req, res, next) => {

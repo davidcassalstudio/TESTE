@@ -1,11 +1,11 @@
 const express       = require('express');
+const mongoose      = require('mongoose');
 const app           = express();
 const PORT          = process.env.PORT || 5000;
 const indexRouter   = require('./routes/index.routes');
 // const contatoRouter = require('./routes/contato.routes');
 // const loginRouter   = require('./routes/login.routes');
 const path          = require('path');
-const mongoose      = require('mongoose');
 
 
 // console.log(process.env.USER)
@@ -23,6 +23,7 @@ mongoose.connect(`mongodb+srv://davidcassal:2wwSRyed2CvH3UpL@cluster0.akxf9rd.mo
     })
 
 app.set('view engine', 'ejs');
+app.use(express.json());
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended: true}));
 
@@ -33,4 +34,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(indexRouter);
 //app.use(contatoRouter);
 
-app.listen(PORT, () => console.log('Servidor rodando em localhost:5000'));
+app.listen(PORT, () => {
+    console.log('Servidor rodando na porta', PORT);
+});

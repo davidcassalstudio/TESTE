@@ -1,4 +1,4 @@
-<%- include('./includes/header.ejs'); %>
+<%- include('includes/header.ejs'); %>
 <body>
     <section>
         <h1>HOME</h1>
@@ -15,19 +15,21 @@
             </thead>
 
             <tbody>
-                <% contatos.forEach(contato => { %>
-                    <tr>
-                        <td><%- contato.nome; %></td>
-                        <td><%- contato.email; %></td>
-                        <td><%- contato.telefone; %></td>
-                        <td>
-                            <a href="/editar-contato/<%- contato._id; %>">Editar</a>
-                            <a href="/delete-item/<%- contato._id; %>">Deletar</a>
-                        </td>
-                    </tr>
-                <% }) %>
+                <% if(contatos.length > 0) { %>
+                    <% contatos.forEach(contato => { %>
+                        <tr>
+                            <td><%- contato.nome; %></td>
+                            <td><%- contato.email; %></td>
+                            <td><%- contato.telefone; %></td>
+                            <td>
+                                <a href="/editar-contato/<%- contato._id; %>">Editar</a>
+                                <a href="/delete-item/<%- contato._id; %>">Deletar</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } %>
             </tbody>
 
         </table>
     </section>
-<%- include('./includes/footer.ejs'); %>
+<%- include('includes/footer.ejs'); %>

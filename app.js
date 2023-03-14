@@ -1,7 +1,7 @@
 const express    = require('express');
 const app        = express();
 const PORT       = process.env.PORT || 5000;
-const homeRouter = require('./routes/home');
+const homeRouter = require('./routes/home.routes');
 
 
 app.use(homeRouter);

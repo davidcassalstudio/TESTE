@@ -1,9 +1,9 @@
 const Contatos = require('../model/contatos.model');
 
-exports.getHome = async (req, res, next) => {
+exports.getIndex = async (req, res, next) => {
     const contatos = await Contatos.find();
 
-    res.render('home', {contatos}); 
+    res.render('index', {contatos}); 
 }
 
 exports.deleteItem = async (req, res, next) => {
@@ -18,14 +18,4 @@ exports.deleteItem = async (req, res, next) => {
             console.log('Ocorreu um erro, tente novamente mais tarde.');
         })
     }
-    
-    // if(id){
-    //     await Contatos.deleteOne({_id: id})
-    //         .then(response => {
-    //             res.redirect('/')
-    //         })
-    //         .catch(err => {
-    //             console.error('')
-    //         })
-    // }
 }

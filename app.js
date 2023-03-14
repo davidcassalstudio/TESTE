@@ -1,7 +1,7 @@
 const express       = require('express');
 const app           = express();
 const PORT          = process.env.PORT || 5000;
-const homeRouter    = require('./routes/home.routes');
+const indexRouter    = require('./routes/index.routes');
 const contatoRouter = require('./routes/contato.routes');
 const loginRouter   = require('./routes/login.routes');
 const path          = require('path');
@@ -30,7 +30,7 @@ app.use(express.urlencoded({extended: true}));
 
 // Routes
 app.use(loginRouter);
-app.use(homeRouter);
+app.use(indexRouter);
 app.use(contatoRouter);
 
 app.listen(PORT, () => console.log('Servidor rodando em localhost:5000'));

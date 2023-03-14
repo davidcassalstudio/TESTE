@@ -1,7 +1,7 @@
 const express       = require('express');
 const app           = express();
 const PORT          = process.env.PORT || 5000;
-const indexRouter    = require('./routes/index.routes');
+const indexRouter   = require('./routes/index.routes');
 // const contatoRouter = require('./routes/contato.routes');
 // const loginRouter   = require('./routes/login.routes');
 const path          = require('path');

@@ -1,10 +1,9 @@
-const express = require('express');
-const app     = express();
-const PORT    = process.env.PORT || 5000;
+const express    = require('express');
+const app        = express();
+const PORT       = process.env.PORT || 5000;
+const homeRouter = require('./routes/home.router');
 
-app.get('/', (req,res,next) => {
-    res.send('Teste');
-})
 
+app.use(homeRouter);
 
 app.listen(PORT, () => console.log('Servidor rodando em localhost:5000'));
